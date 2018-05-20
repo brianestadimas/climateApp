@@ -72,7 +72,7 @@ List of main files :
 
 #### Test and run server
 
-![alt text](https://imgur.com/a/gYYoE9E)
+![alt text](cmd.jpg)
 
-![alt text](https://imgur.com/a/Km0IzQx)
+![alt text](test.jpg)
 
