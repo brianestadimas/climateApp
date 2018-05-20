@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- bootstrap csss -->
+    <title>
+        Climate APP Table
+    </title>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+</style>
+</head>
+
+<body>
+
+  <h2>Climate APP Table</h2>
+  <h3>Location :</h3>
+
+  <select id="myselect">
+    <option value="Jakarta">Jakarta</option>
+    <option value="Tokyo">Tokyo</option>
+    <option value="London">London</option>
+  </select>
+
+  <table style="margin-top:50px;">
+    <tr>
+      <th>Date</th>
+      <th>Temperature</th>
+      <th>Variance</th>
+    </tr>
+    {% for elem in data %}
+    <tr>
+      <td>{{ elem.time }}</td>
+      <td>{{ elem.temp }} C</td>
+      <td>{{ elem.variance }} C</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+</body>
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="application/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+  $("#myselect").change( function() {
+    var loc = $("#myselect").find(":selected").text();
+    $.ajax({
+      data: {
+        'loc': loc
+      },
+      dataType: 'json'
+    });
+    setTimeout(function() {
+      location.reload();
+    }, 500);
+  });
+</script>
+
+
+
